@@ -16,73 +16,77 @@
  * R.2 porcentajeVentasEscolares(): 50%
  */
 class Cl_mRopa {
-  constructor(nombre = "", costo, tipo) {
-    this.nombre = nombre;
-    this.costo = costo;
-    this.tipo = tipo;
-  }
+   constructor(nombre = "", costo, tipo) {
+      this.nombre = nombre;
+      this.costo = costo;
+      this.tipo = tipo;
+   }
 
-  ganancia() {
-    return this.costo * 0.2;
-  }
+   ganancia() {
+      return this.costo * 0.2;
+   }
 
-  precio() {
-    return this.costo + this.ganancia() - this.descuento();
-  }
+   precio() {
+      return this.costo + this.ganancia() - this.descuento();
+   }
 
-  descuento() {
-    return 0;
-  }
+   descuento() {
+      return 0;
+   }
 }
 
 class Cl_mIntimo extends Cl_mRopa {
-  constructor(nombre = "", costo, sexo) {
-    super(nombre, costo);
-    this.sexo = sexo;
-  }
+   constructor(nombre = "", costo, sexo) {
+      super(nombre, costo);
+      this.sexo = sexo;
+   }
 
-  ganancia() {
-    return this.costo * (this.sexo === "M" ? 0.3 : 0.4);
-  }
+   ganancia() {
+      return this.costo * (this.sexo === "M" ? 0.3 : 0.4);
+   }
 }
 
 class Cl_mEscolar extends Cl_mRopa {
-  constructor(nombre = "", costo, tipo, talla) {
-    super(nombre, costo, tipo);
-    this.talla = talla;
-  }
+   constructor(nombre = "", costo, tipo, talla) {
+      super(nombre, costo, tipo);
+      this.talla = talla;
+   }
 
-  descuento() {
-    if (this.talla === "S") {
-      return (this.costo + this.ganancia()) * 0.05;
-    } else if (this.talla === "M") {
-      return (this.costo + this.ganancia()) * 0.07;
-    } else {
-      return (this.costo + this.ganancia()) * 0.1;
-    }
-  }
+   descuento() {
+      if (this.talla === "S") {
+         return (this.costo + this.ganancia()) * 0.05;
+      } else if (this.talla === "M") {
+         return (this.costo + this.ganancia()) * 0.07;
+      } else {
+         return (this.costo + this.ganancia()) * 0.1;
+      }
+   }
 }
 
 class Cl_mTienda {
-  constructor() {
-    this.acumPrecios = this.acumCostos = this.cntEscolares = this.cntTotal = 0;
-  }
+   constructor() {
+      this.acumPrecios =
+         this.acumCostos =
+         this.cntEscolares =
+         this.cntTotal =
+            0;
+   }
 
-  procesarRopa(r) {
-    this.cntTotal++;
-    this.acumPrecios += r.precio();
-    this.acumCostos += r.costo;
-    if (r.tipo === 3) this.cntEscolares++;
-  }
+   procesarRopa(r) {
+      this.cntTotal++;
+      this.acumPrecios += r.precio();
+      this.acumCostos += r.costo;
+      if (r.tipo === 3) this.cntEscolares++;
+   }
 
-  totalGanancia() {
-    return (this.acumPrecios - this.acumCostos).toFixed(2);
-  }
+   totalGanancia() {
+      return (this.acumPrecios - this.acumCostos).toFixed(2);
+   }
 
-  porcentajeVentasEscolares() {
-    if (this.cntEscolares === 0) return 0;
-    else return (this.cntEscolares / this.cntTotal) * 100;
-  }
+   porcentajeVentasEscolares() {
+      if (this.cntEscolares === 0) return 0;
+      else return (this.cntEscolares / this.cntTotal) * 100;
+   }
 }
 
 let tienda = new Cl_mTienda();
@@ -103,8 +107,8 @@ salida.innerHTML += "<br>Precio de persona 3= " + persona3.precio();
 salida.innerHTML += "<br>Precio de persona 4= " + persona4.precio();
 salida.innerHTML += "<br>";
 salida.innerHTML +=
-  "<br>Total ganancia de la tienda= " + tienda.totalGanancia();
+   "<br>***** Total ganancia de la tienda= " + tienda.totalGanancia();
 salida.innerHTML +=
-  "<br>Porcentaje de ventas de camisas escolares= " +
-  tienda.porcentajeVentasEscolares() +
-  "%";
+   "<br>Porcentaje de ventas de camisas escolares= " +
+   tienda.porcentajeVentasEscolares() +
+   "%";
