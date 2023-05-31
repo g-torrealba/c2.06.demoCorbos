@@ -101,10 +101,10 @@ tienda.procesarRopa(persona4);
 
 let salida = document.getElementById("app");
 salida.innerHTML = "Resultados:";
-salida.innerHTML += "<br>Precio ropa persona 1= " + persona1.precio();
-salida.innerHTML += "<br>Precio ropa persona 2= " + persona2.precio();
-salida.innerHTML += "<br>Precio ropa persona 3= " + persona3.precio();
-salida.innerHTML += "<br>Precio ropa persona 4= " + persona4.precio();
+salida.innerHTML += "<br>Precio persona 1= " + persona1.precio();
+salida.innerHTML += "<br>Precio persona 2= " + persona2.precio();
+salida.innerHTML += "<br>Precio persona 3= " + persona3.precio();
+salida.innerHTML += "<br>Precio persona 4= " + persona4.precio();
 salida.innerHTML += "<br>";
 salida.innerHTML +=
    "<br>Total ganancia de la tienda= " + tienda.totalGanancia();
